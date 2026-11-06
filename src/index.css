@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+/* Auros design tokens (see DESIGN.md). Resetting --color-* means no default
+   Tailwind color can be used by accident: only this palette exists. */
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+  --color-abyss: #012624;
+  --color-deep: #011d1c;
+  --color-kelp: #003734;
+  --color-mist: #edfffe;
+  --color-platinum: #ffffff;
+  --color-silver: #bbc7c6;
+  --color-phosphor: #fde9ff;
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius-card: 16px;
+  --radius-ctl: 6px;
+}
+
+@layer base {
+  html { background: var(--color-abyss); }
+  body {
+    margin: 0;
+    background: var(--color-abyss);
+    color: var(--color-silver);
+    font-family: var(--font-sans);
+    font-weight: 400;
+    line-height: 1.4;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 { color: var(--color-platinum); font-weight: 500; line-height: 1; margin: 0; }
+  a { color: var(--color-mist); }
+  :focus-visible { outline: 2px solid var(--color-mist); outline-offset: 2px; }
+  ::placeholder { color: var(--color-silver); opacity: 0.6; }
+}
+
+@layer components {
+  .card {
+    background: var(--color-kelp);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  @media (min-width: 640px) { .card { padding: 36px; } }
+  .card-deep {
+    background: var(--color-deep);
+    border-radius: var(--radius-card);
+    padding: 24px;
+  }
+  @media (min-width: 640px) { .card-deep { padding: 36px; } }
+
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-silver);
+  }
+
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    border-radius: var(--radius-ctl);
+    padding: 14px 22px;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: linear-gradient(90deg, rgb(203 255 252) 0%, rgb(237 255 254) 26.25%, rgb(255 253 250) 47.57%, rgb(250 209 255) 88.96%);
+    color: var(--color-abyss);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .btn-secondary {
+    background: var(--color-kelp);
+    color: var(--color-platinum);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+  .card .btn-secondary { background: var(--color-deep); }
+  .btn-primary:disabled, .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; }
+
+  .input {
+    width: 100%;
+    background: var(--color-deep);
+    color: var(--color-mist);
+    border: 0;
+    border-radius: var(--radius-ctl);
+    padding: 13px 14px;
+    font: inherit;
+    font-size: 16px;
+  }
+  .card-deep .input { background: var(--color-kelp); }
+  textarea.input { resize: vertical; min-height: 140px; }
+
+  .stat {
+    font-size: clamp(2.5rem, 8vw, 3.8rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: var(--color-phosphor);
+    font-weight: 500;
+  }
+
+  .nav-link {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-silver);
+    text-decoration: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .nav-link:hover, .nav-link.active { color: var(--color-platinum); }
+
+  .tab {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    padding: 10px 16px;
+    border: 0;
+    border-radius: var(--radius-ctl);
+    background: transparent;
+    color: var(--color-silver);
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .tab[aria-pressed="true"] { background: var(--color-kelp); color: var(--color-platinum); }
+}

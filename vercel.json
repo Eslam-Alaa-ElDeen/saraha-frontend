@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+        { "source": "/api/:path*", "destination": "https://saraha-app-production-7778.up.railway.app/:path*" },
+        { "source": "/uploads/:path*", "destination": "https://saraha-app-production-7778.up.railway.app/uploads/:path*" },
+        { "source": "/(.*)", "destination": "/index.html" }
+    ]
+}
