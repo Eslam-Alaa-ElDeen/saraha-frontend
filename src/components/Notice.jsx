@@ -1,6 +1,6 @@
 // The single way to show feedback. Color is never the only signal: each type has a text prefix.
 const STYLES = {
-  error: "bg-phosphor text-abyss",
+  error: "bg-danger text-platinum",
   success: "bg-kelp text-mist",
   info: "bg-deep text-mist",
 };

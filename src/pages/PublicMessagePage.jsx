@@ -87,7 +87,7 @@ export default function PublicMessagePage() {
           <div className="mb-5">
             <label htmlFor="attachments" className="eyebrow mb-2 block">Images (optional, up to {MAX_IMAGES})</label>
             <input id="attachments" ref={fileInput} type="file" accept="image/jpeg,image/png,image/gif" multiple className="input" onChange={addFiles} />
-            {errors.files && <p className="mt-2 text-sm text-mist"><span className="font-medium">Error:</span> {errors.files}</p>}
+            {errors.files && <p className="mt-2 text-sm text-danger-soft"><span className="font-medium">Error:</span> {errors.files}</p>}
             {files.length > 0 && (
               <ul className="mt-4 flex list-none flex-wrap gap-3 p-0">
                 {files.map((f, i) => (
